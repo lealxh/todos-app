@@ -1,6 +1,6 @@
 import React, { useEffect } from "react"
-import CreateTodo from "./Create"
-import EditTodo from "./Edit"
+import CreateTodo from "./create"
+import EditTodo from "./edit"
 import ListTodos from "./List"
 import { Link } from "react-router-dom"
 
