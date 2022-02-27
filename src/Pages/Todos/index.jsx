@@ -13,7 +13,6 @@ function Home() {
         <br />
         <Link to={"/create"}>Create</Link>
         <br />
-        <Link to={"/edit"}>Edit</Link>
       </div>
     </>
   )
