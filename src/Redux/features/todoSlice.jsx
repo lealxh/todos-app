@@ -21,6 +21,22 @@ export const updateTodo = createAsyncThunk("todos/updateTodo", (id, values) => {
     .catch(error => error.json())
 })
 
+export const createTodo = createAsyncThunk("todos/createTodo", values => {
+  return fetch(`https://jsonplaceholder.typicode.com/todos`, {
+    method: "POST",
+    body: JSON.stringify({
+      userId: values.userId,
+      title: values.title,
+      completed: values.completed
+    }),
+    headers: {
+      "Content-type": "application/json; charset=UTF-8"
+    }
+  })
+    .then(response => response.json())
+    .then(json => console.log(json))
+    .catch(error => error.json())
+})
 const todoSlice = createSlice({
   name: "todos",
   initialState: {
@@ -61,6 +77,21 @@ const todoSlice = createSlice({
       state.loading = false
     },
     [updateTodo.rejected]: (state, action) => {
+      state.loading = false
+      console.log("Rejected")
+      console.log(action)
+      state.error = action.payload
+    },
+    [createTodo.pending]: (state, action) => {
+      state.loading = true
+    },
+    [createTodo.fulfilled]: (state, action) => {
+      //state.todos = action.payload
+      console.log("Fulfilled")
+      console.log(action)
+      state.loading = false
+    },
+    [createTodo.rejected]: (state, action) => {
       state.loading = false
       console.log("Rejected")
       console.log(action)

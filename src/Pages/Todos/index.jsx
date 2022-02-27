@@ -7,11 +7,11 @@ import { Link } from "react-router-dom"
 function Home() {
   return (
     <>
-      <h1>Home</h1>
+      <h1>Todos App</h1>
       <div>
-        <Link to={"/list"}>List</Link>
+        <Link to={"/list"}>List todos</Link>
         <br />
-        <Link to={"/create"}>Create</Link>
+        <Link to={"/create"}>Create todo</Link>
         <br />
       </div>
     </>

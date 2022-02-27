@@ -10,7 +10,7 @@ function ListTodos() {
   const { todos = [], loading = false, error = null } = useSelector(state => ({ ...state.todos }))
 
   useEffect(() => {
-    dispatch(getTodos())
+    if (todos.length == 0) dispatch(getTodos())
   }, [])
 
   return (
